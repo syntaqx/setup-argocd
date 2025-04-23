@@ -1,0 +1,13 @@
+name: 'Install ArgoCD'
+description: 'Install argocd and add it to the $PATH'
+runs:
+  using: 'composite'
+  steps:
+  - run: curl -sLO https://github.com/argoproj/argo-cd/releases/download/v2.10.2/argocd-linux-amd64
+    shell: bash
+  - run: chmod +x argocd-linux-amd64
+    shell: bash
+  - run: mv argocd-linux-amd64 /usr/local/bin/argocd
+    shell: bash
+  - run: argocd version --client
+    shell: bash
